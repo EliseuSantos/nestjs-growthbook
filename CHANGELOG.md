@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/EliseuSantos/nestjs-growthbook/compare/v1.1.0...v1.1.1) (2024-07-01)
+
+
+### Bug Fixes
+
+* remove unused code ([ed94697](https://github.com/EliseuSantos/nestjs-growthbook/commit/ed94697ed2900e472b16fc99a4d598e3fd1926ea))
+
 # [1.1.0](https://github.com/EliseuSantos/nestjs-growthbook/compare/v1.0.0...v1.1.0) (2024-07-01)
 
 
