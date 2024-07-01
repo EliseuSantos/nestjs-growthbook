@@ -1,25 +1,28 @@
-import { Inject, Injectable, OnModuleInit, OnApplicationShutdown } from '@nestjs/common';
+import { Inject, Injectable, OnApplicationShutdown } from '@nestjs/common';
 import { GrowthBook, Experiment } from '@growthbook/growthbook';
 import { GROWTHBOOK_MODULE_OPTIONS } from './growthbook.constants';
 import { GrowthbookModuleOptions } from './growthbook.interfaces';
 
 @Injectable()
-export class GrowthbookService implements OnModuleInit, OnApplicationShutdown {
+export class GrowthbookService implements OnApplicationShutdown {
   private growthbook: GrowthBook;
 
   constructor(
     @Inject(GROWTHBOOK_MODULE_OPTIONS)
     private readonly opts: GrowthbookModuleOptions,
   ) {
-    this.growthbook = new GrowthBook({
-      apiHost: this.opts.apiHost,
-      clientKey: this.opts.clientKey,
+    console.log({
+      apiHost: opts.apiHost,
+      clientKey: opts.clientKey,
       ...opts
     })
-  }
+    this.growthbook = new GrowthBook({
+      apiHost: opts.apiHost,
+      clientKey: opts.clientKey,
+      ...opts
+    })
+    this.growthbook.init();
 
-  async onModuleInit() {
-    await this.growthbook.init();
   }
 
   async onApplicationShutdown(signal?: string) {

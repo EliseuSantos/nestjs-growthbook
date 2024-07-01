@@ -4,7 +4,15 @@ import { GrowthbookModuleOptions, GrowthbookModuleAsyncOptions } from './growthb
 import { GROWTHBOOK_TOKEN, GROWTHBOOK_MODULE_OPTIONS } from './growthbook.constants';
 import { GrowthbookService } from './growthbook.service';
 
-@Module({})
+@Module({
+  providers: [
+    {
+      provide: GROWTHBOOK_TOKEN,
+      useClass: GrowthbookService,
+    },
+  ],
+  exports: [GROWTHBOOK_TOKEN, GROWTHBOOK_MODULE_OPTIONS],
+})
 export class GrowthbookModule {
   static forRoot(options: GrowthbookModuleOptions): DynamicModule {
     const growthbookOptionsProvider: Provider = {
@@ -26,6 +34,10 @@ export class GrowthbookModule {
   }
 
   static forRootAsync(options: GrowthbookModuleAsyncOptions): DynamicModule {
+    const growthbookOptionsProvider: Provider = {
+      provide: GROWTHBOOK_MODULE_OPTIONS,
+      useValue: options,
+    };
     const growthbookProvider: Provider = {
       provide: GROWTHBOOK_TOKEN,
       useClass: GrowthbookService,
@@ -34,7 +46,7 @@ export class GrowthbookModule {
     return {
       module: GrowthbookModule,
       imports: [GrowthbookCoreModule.forRootAsync(options)],
-      providers: [growthbookProvider],
+      providers: [growthbookOptionsProvider, growthbookProvider],
       exports: [growthbookProvider],
     };
   }
