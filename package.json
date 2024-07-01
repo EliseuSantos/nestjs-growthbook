@@ -1,6 +1,6 @@
 {
   "name": "nestjs-growthbook",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Provides an injectable growthbook client to provide feature flag check on nestjs modules",
   "main": "./dist/index.js",
   "typings": "./dist/index.d.ts",
