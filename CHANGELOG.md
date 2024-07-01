@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.2](https://github.com/EliseuSantos/nestjs-growthbook/compare/v1.1.1...v1.1.2) (2024-07-01)
+
+
+### Bug Fixes
+
+* fix import token ([f32cce8](https://github.com/EliseuSantos/nestjs-growthbook/commit/f32cce8f247a2ece42985ca497061923a1b552bd))
+
 ## [1.1.1](https://github.com/EliseuSantos/nestjs-growthbook/compare/v1.1.0...v1.1.1) (2024-07-01)
 
 
