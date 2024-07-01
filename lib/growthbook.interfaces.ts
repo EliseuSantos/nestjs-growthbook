@@ -15,12 +15,3 @@ export interface GrowthbookModuleAsyncOptions extends Pick<ModuleMetadata, 'impo
     useExisting?: Type<GrowthbookOptionsFactory>;
     useFactory?: (...args: any[]) => Promise<GrowthbookModuleOptions> | GrowthbookModuleOptions;
 }
-
-export interface GrowthbookFilterFunction {
-    (exception:any): boolean
-}
-
-export interface GrowthbookInterceptorOptionsFilter {
-    type: any;
-    filter?: GrowthbookFilterFunction;
-}
