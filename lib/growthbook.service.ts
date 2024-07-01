@@ -30,6 +30,10 @@ export class GrowthbookService implements OnModuleInit, OnApplicationShutdown {
     this.growthbook.setAttributes(data);
   }
 
+  instance() {
+    return this.growthbook;
+  }
+
   async runExperiment<T>(experiment: Experiment<T>): Promise<any> {
     const result = await this.growthbook.run(experiment);
     return result.value;
